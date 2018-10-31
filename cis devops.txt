@@ -1,0 +1,36 @@
+dev-ops
+
+
+development operations
+
+development- coding and testing
+operations- take software and put it into production and then maintain it.
+
+
+development:
+
+-create
+-verify
+-package
+
+
+Ops
+-release
+-configure
+-monitor
+
+
+Devops is a continous cycle
+
+in order for cycle to work is that everything has to be automated
+ 
+ 
+devops integrates developers and opersations team in order to improve  collaborationadn productivity by automatiing infastructure automating workflows and continously  measuring   application performence.
+
+  regression testing- put something new out and there is no testing to see if  old stuff works.                      
+
+benefits to devops:
+-speed 
+- reliability  
+- scale
+-security                
