@@ -1,0 +1,156 @@
+<!doctype HTML>
+<HTML>
+<!--Refrences:
+https://www.w3schools.com/tags/tag_button.asp //button format 
+https://stackoverflow.com/questions/28894074/syntaxerror-expected-expression-got 		//helped with the syntax errors i originally had
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick 					//this helped with the button clicking 
+https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics	 //this gave basics to javascript
+https://www.w3schools.com/jsref/event_onclick.asp //This helped with button clicking as well
+https://stackoverflow.com/questions/40858456/how-to-display-a-javascript-var-in-html-body/40858655 	//this helped with connecting the javascript and html
+https://www.youtube.com/watch?v=2qBIB-CqA5E 				//this video showed how to create the conversion function and variables. 
+															i was having a rough time coming up with the correct syntax so i looked at this video to see what i was doing wrong and it helped me 
+															because something was incorrect with my other examples.-->
+ 	<HEAD>
+		<meta charset="UTF-8">
+		<META name="author" description="Dan DeCarlo"/>
+			<TITLE>Conversion Project</TITLE>
+			
+			<SCRIPT>
+			
+			//This function is to convert fahrenheit to celcius
+			//formula for Fahrenheit to celcius is fahrenheit value -32 *(5/9)
+			function fahrenheit_C(){
+			
+			var fahrenheit = document.getElementById('fahrenheit_in') //this variable calls the fahrenheit value input from the html textbox
+			
+			var Celcius_value = document.getElementById('Celcius_C') //this variable takes the celcius value and displays it
+			
+			Celcius_C.value = (fahrenheit.value - 32)*5/9 //this equation takes the fvalue and converts it into Celcius_c.value
+			
+			alert('Celcius value is ' +  Celcius_C.value); //this alerts the function on webpage
+			}
+			
+			//This function converts feet to inches
+			//the formula for this conversion is the (amount of feet *12)
+			
+			function ft_inch(){
+			
+			var feet = document.getElementById('feet') //this calls the feet as the input
+			
+			var inches_value = document.getElementById('inches') //this calls the inches variable 
+			
+			inches_value = (feet.value * 12) //this converts the feet to inches
+			
+			alert('Inches value is ' + inches_value); //this alerts the webpage of the amount of inches
+			}
+			
+			
+			//This function converts inches to centimeters
+			//The formula for inches to centimeters is (inch value * 2.54)
+			
+			function Inches_Centimeter(){
+			
+			var inches_2 = document.getElementById('inch2') //this calls the inches as the input
+			
+			var centimeter_value = document.getElementById('Centimeters') //this calls the centimeters variable 
+			
+			centimeter_value = (inch2.value * 2.54) //this converts the inches to centimeters
+			
+			alert('Centimeter Value is ' + centimeter_value); //this alerts the webpage of the amount of centimeters
+			}
+			
+			//this function converts feet to yards
+			//the formula for converting feet to yards is (amount of feet * 3)
+			
+			function feet_Yards(){
+			var feet2 = document.getElementById('feet2') //this calls the inches as the input
+			
+			var Yard_value = document.getElementById('Yards') //this calls the centimeters variable 
+			
+			Yard_value = (feet2.value / 3) //this converts the inches to centimeters
+			
+			alert('Yard Value is ' + Yard_value); //this alerts the webpage of the amount of centimeters
+			}
+			
+			</SCRIPT>
+			
+	</HEAD>
+		<BODY>
+			<h1>Welcome to my conversion project! Below are some conversion boxes to fill in. Hope you enjoy!</h1>
+			<h3>*Converter only works when you put values in the left hand side.</h3>
+			
+		
+			<h2> Fahrenheit to Celcius:</h2>
+			<h5>Enter your fahrenheit value and it will convert to celcius.</h5>
+				<INPUT type = 'number'
+					   id = 'fahrenheit_in' 
+					   placeholder = 'Fahrenheit'
+					   size = "10"
+												/> 
+			
+				<BUTTON onclick = 'fahrenheit_C(alert);' >Convert</BUTTON>
+			
+
+				<INPUT type = 'number'
+					   id = 'Celcius_C' 
+					   placeholder = 'Celcius'
+					   size = '10'
+											/>
+			<hr></hr>	
+			
+			
+			<h2>Feet to Inches:</h2>
+			<h5>Enter the amount of feet and it will convert to inches.</h5>
+				<INPUT type = 'number'
+				       id = 'feet'
+				       placeholder = 'Feet'
+				       size = "10"				/>
+				   
+				   
+				<BUTTON onclick ='ft_inch(alert);' >Convert </BUTTON>
+			
+			
+				<INPUT type = 'number'
+				       id = 'inches_value'
+				       placeholder = 'Inches'
+				       size = "10"				/>
+			<hr></hr>
+
+
+			<h2>Inches to Centimeters:</h2>
+			<h5>Enter your inch(es) value and it will convert to centimeters.</h5>
+				<INPUT type = 'number'
+				       id = 'inch2'
+				       placeholder = 'Inches'
+				       size = "10"				/>
+				   
+				   
+				<BUTTON onclick ='Inches_Centimeter(alert);' >Convert </BUTTON>
+			
+			
+				<INPUT type = 'number'
+				       id = 'Centimeters'
+				       placeholder = 'Centimeters'
+				       size = "10"				/>
+			<hr></hr>	 
+					   
+			<h2>Feet to Yards:</h2>
+			<h5>Enter the amount of feet and it will convert to yards.</h5>
+				<INPUT type = 'number'
+					   id = 'feet2' 
+					   placeholder = 'Feet'
+					   size = "10"
+												/> 
+			
+				<BUTTON onclick = 'feet_Yards(alert);' >Convert</BUTTON>
+			
+
+				<INPUT type = 'number'
+					   id = 'Yards' 
+					   placeholder = 'Yards'
+					   size = '10'
+											/>
+			<hr></hr>
+
+		</BODY>
+</HTML>
