@@ -1,0 +1,48 @@
+h1{
+    color:red;
+    font-family: chiller;
+    font-size: 400%;
+    font-weight: bold;     
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+    text-shadow: 3px 2px red;
+}
+h4{
+    color: white;
+    font-family: comic sans MS;
+    font-weight: bold; 
+}
+body{
+    background-color:black;
+    font-family: comic sans MS;
+}
+p{
+    color: white;
+    font-family: comic sans MS;
+}
+h3{
+    color: white;
+    font-family: comic sans MS;
+    text-align: r;
+}
+ol{
+    color: white;
+    font-family: comic sans MS;
+    text-align: right;
+}
+li{
+    color: white;
+    font-family: comic sans MS;
+    text-align: left; 
+}
+button{
+    font-family: comic sans MS;
+    text-align: right;
+}  
+div {
+    width: 400px;
+    border: 10px solid red;
+    padding: 10px;
+    margin: 10px;
+}
