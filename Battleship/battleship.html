@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>BattleShip</TITLE>
+<meta charset="UTF-8" />
+<META name="author" description="Dan DeCarlo"/>
+<SCRIPT type = "text/javascript" src = "battleshipfunction.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="battleshipdesign.css">
+</HEAD>
+
+<BODY onLoad ="grids()" >
+    
+    <div id = "cpuboard" style="float:right;"></div>
+    <div id = "hboard" style="float:left;"></div> 
+    
+   <input class = "coordinates" placeholder = "enter coordinates" id = "coordinates" style="text-transform: uppercase"> <!--found to uppercase on stackoverflow https://stackoverflow.com/questions/5757101/change-input-to-upper-case -->
+   <button id = "submit" onClick = "humanshot()">Submit</button>
+   <button id = "submit" onClick = "cpushot()">CPU turn</button>
+
+   <br> <br> <br>
+
+     <div id= "shipcontainer">Ships:
+        <p>This section of the project is unfinished. This takes the inputs and puts them in an array.
+            They are the coordinates of the ships. if the game was dynamic this is where it would be used.
+        </p>
+        <button onClick= "gennum()">gennum</button>
+        <ul>
+            <li>Destroyer is D.</li>
+                <input placeholder="enter spaces" id="Dships" size=15>
+                <button onClick = "destroy_pos()">Store</button>
+                <button onClick = "cleard()">Clear</button>
+            <li>Cruiser is CR.</li>
+                <input placeholder="enter spaces" id="Cships" size=15>
+                <button onClick = "cruiser_pos()">Store</button>
+                <button onClick = "clearcr()">Clear</button>
+            <li>Submarine is S.</li>
+                <input placeholder="enter spaces" id="Sships" size=15>
+                <button onClick = "submarine_pos()">Store</button>
+                <button onClick = "clearS()">Clear</button>
+            <li>Aircraft Carrier is A.</li>
+                <input placeholder="enter spaces" id="Aships" size=15>
+                <button onClick = "aircraft_pos()">Store</button>
+                <button onClick = "clearA()">Clear</button>
+            <li>Battleship is B.</li>
+                <input placeholder="enter spaces" id="Bships" size=15>
+                <button onClick = "battleship_pos()">Store</button>
+                <button onClick = "clearb()">Clear</button>
+        </ul>
+    </div>
+    
+<!--stores the value for the coord
+    <input placeholder="enter spaces" id="urships" size=15>
+    <button onClick = "storeships()">store</button> -->
+</BODY>
+
+</HTML>

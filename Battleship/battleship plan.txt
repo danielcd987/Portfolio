@@ -1,0 +1,34 @@
+Software Development Life cycle (SDLC)
+
+Design/Model --> Analyze (choose best way of handling it.) --> Developing Code (Work Backwards) --> Test (critical!!!
+
+if the test doesnt work then go back to the analyze phase.) --> Implementation (Have the software being used) -->
+
+Maintain (training, fixing bugs) --> Goes back to design and modeling. 
+
+
+
+Battle Ship:
+
+Five steps:
+
+1)Set up 
+
+
+2)Placing ships (Human Player)
+
+
+3)Placing ships (Computer Player) 
+
+
+4)Human take shot
+	-evaluate hit or miss
+	-"" ship sunk
+	-"" game over
+
+
+5)Computer take shot
+	-evaluate hit or miss
+	-"" ship sunk
+	-"" game over
+

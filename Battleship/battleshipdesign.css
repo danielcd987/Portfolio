@@ -1,0 +1,11 @@
+.pos{
+   position: center;
+}
+.box{
+   position: center;
+} 
+#shipcontainer{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
