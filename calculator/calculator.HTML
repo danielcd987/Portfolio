@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>title of tab header</TITLE>
+<meta charset="UTF-8" />
+<META name="author" description="Dan DeCarlo"/>
+<SCRIPT type = "text/javascript"> 
+    function calculator(){
+        var numberone = Number(document.getElementById("input1").value); //using number makes the element a number 
+        var numbertwo = Number(document.getElementById("input2").value);
+            if(document.getElementById("operations").value == "+"){
+                 alert(numberone + numbertwo)
+             }
+              else if(document.getElementById("operations").value == "-"){
+                 alert(numberone - numbertwo)
+             }
+             else if(document.getElementById("operations").value == "*"){
+                 alert(numberone * numbertwo)
+             }
+             else if(document.getElementById("operations").value == "/"){
+                 alert(numberone / numbertwo)
+             }
+             else if(document.getElementById("operations").value == "^"){
+                 alert (numberone ** numbertwo)
+             };
+             //document.getElementById("displaynumber").innerHTML = "Answer is " + calculator() ;
+            
+    } // calculator
+
+    
+
+</SCRIPT>
+</HEAD>
+<BODY>
+    <input id="input1">
+        <select id = operations>
+            <option value = "+" id= "add">+</option>
+            <option value = "-" id = "subtract">-</option id = "subtract">
+            <option value = "*"id = "multiply">*</option>
+            <option value = "/" id = "divide">/</option>
+            <option value = "^" id = "power">^</option>
+        </select>
+    <input id ="input2">
+    <button onClick = "calculator()">Enter</button>
+   <hr>Insert one value in one text box and another value in the other and choose the operation you would like to perform.    
+    
+    <div id = "displaynumber"></div>
+
+<br><br><br><br><br>
+
+        <div style="border:1px solid black;" ></div>
+
+    <!--old fashioned calculator-->
+    Old Button clicking calculator (Work in progress)
+    <div>
+        <button onClick = "nine()" id="nine" value = 9>9</button>
+        <button onClick = "eight()" id = "eight" value = 8>8</button>
+        <button onClick = "seven()" id = "seven" value = 7>7</button>
+    </div>
+
+    <div>
+        <button onClick = "six()" id = "six" value = 6>6</button>
+        <button onClick = "five()" id = "five" value = 5>5</button>
+        <button onClick = "four()" id = "four" value = 4>4</button>
+    </div>
+    <div>
+        <button onClick = "three()" id = "three" value = 3>3</button>
+        <button onClick = "two()" id = "two" value = 2>2</button>
+        <button onClick = "one()" id = "one" value = 1>1</button>
+    </div>
+
+
+
+</BODY>
+</HTML>
