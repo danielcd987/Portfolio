@@ -23,10 +23,12 @@ cpustaticB = ["G2","G3","G4","G5"];
 function grids(){ //loads functions on the page
 	humanboard();
 	cpuboard();
-	gennum();
+	endgame();
+	sunk();
 	
 }//grids
 //create the game board
+
 /*********************************************** */
 //human board
 var boardPieces = []; //first dimension of array
@@ -175,12 +177,10 @@ function humanshot(){
 		alert("Value is too long. Use a coordinate value that contains one letter and one number that is no more than 10.")}
 	else if(coord.length < 2){ //takes the value and alerts if its too short
 		alert("Value is too short. Use a coordinate value that contains one letter and one number that is no more than 10.")}
-
-	//else if(coord == ships){alert("yes")} //gets the array ships which has the boats stored and checks if the stored value matches the value in the array.
-	else{shot()}
+	else{shot()}//,sunk()}
 }
 //human shot
-//this loops through the arrays and checks if the value inputed matches the human input.
+//this loops through the arrays and checks if the value inputed matches the human input for each ship.
 function shot(){ 
 	var coord = document.getElementById("coordinates").value; //takes the coordinate entered and displays it in an alert
 		//destroyer
@@ -238,10 +238,11 @@ function shot(){
 								cpustaticA.splice(3,0,"HIT");
 								}	
 								else if (coord == "E1"){
-									cpustaticA.splice(3,1);
-									cpustaticA.splice(3,0,"HIT");
-									}						
+									cpustaticA.splice(4,1);
+									cpustaticA.splice(4,0,"HIT");
+									}		
 			}
+			
 			else{alert("Aircraft Miss")};
 		}
 		//submarine
@@ -259,11 +260,7 @@ function shot(){
 						else if (coord == "C6"){
 							cpustaticS.splice(2,1);
 							cpustaticS.splice(2,0,"HIT");
-							}	
-							else if (coord == "D1"){
-								cpustaticS.splice(3,1);
-								cpustaticS.splice(3,0,"HIT");
-								}	
+							}		
 		}
 			else{alert("Submarine Miss")}
 	}
@@ -290,37 +287,163 @@ function shot(){
 			}
 			else{alert("Battleship Miss")};
 		}	
-} //shot
-/*************************************************** */
-//create a separate sheet to compare the grid values and see if they are correct refrence spell check
+	
+ 
+}//shot
+/************************************************************************************************* */
 //comp shot
-//this generates a random number. can be used for CPU shot
-var newnum;					//this var is a global var which means that it generates the number when you load the page or hit "play again" button.
 
-	function gennum(){
+function cpushot(){
+	var coords = cpucoord();
+	for (var ci = 0; ci < staticD.length; ci++) {
+		if (staticD [ci] === coords) {
+			alert("Destroyer Hit " + cpucoord());
+			if(coords === "I6"){
+			staticD.splice(0,1);
+			staticD.splice(0,0,"HIT");
+			}
+			else if (coords === "I7"){
+				staticD.splice(1,1);
+				staticD.splice(1,0,"HIT");
+				}
+		}
+		else{alert("CPU missed your Destroyer")};
+	}
+	//cruiser
+	for (var ck = 0; ck < staticCR.length; ck++) {
+		if (staticCR [ck] === coords) {
+			alert("Cruiser Hit " + coords);
+			if(coords == "E3"){
+				staticCR.splice(0,1);
+				staticCR.splice(0,0,"HIT");
+				}
+				else if (coords === "F3"){
+					staticCR.splice(1,1);
+					staticCR.splice(1,0,"HIT");
+					}
+					else if (coords === "G3"){
+						staticCR.splice(2,1);
+						staticCR.splice(2,0,"HIT");
+						}							
+		}
+		else{alert("CPU missed your Cruiser")};
+	}
+	//aircraft
+	for (var cl = 0; cl < staticA.length; cl++) {
+		if (staticA [cl] === coords) {
+			alert("Aircraft Hit " + coords);
+			if(coords === "A2"){
+				staticA.splice(0,1);
+				staticA.splice(0,0,"HIT");
+				}
+				else if (coords === "A3"){
+					staticA.splice(1,1);
+					staticA.splice(1,0,"HIT");
+					}
+					else if (coords === "A4"){
+						staticA.splice(2,1);
+						staticA.splice(2,0,"HIT");
+						}	
+						else if (coords === "A5"){
+							staticA.splice(3,1);
+							staticA.splice(3,0,"HIT");
+							}	
+							else if (coords === "A6"){
+								staticA.splice(4,1);
+								staticA.splice(4,0,"HIT");
+								}		
+		}
+		
+		else{alert("CPU missed your Aircraft")};
+	}
+
+	//submarine
+	for (var cb = 0; cb < staticS.length; cb++) {
+		if (staticS [cb] === coords) {
+			alert("Submarine Hit " + coords);
+			if(coords === "J2"){
+				staticS.splice(0,1);
+				staticS.splice(0,0,"HIT");
+				}
+				else if (coords === "J3"){
+					staticS.splice(1,1);
+					staticS.splice(1,0,"HIT");
+					}
+					else if (coords === "J4"){
+						staticS.splice(2,1);
+						staticS.splice(2,0,"HIT");
+						}	
+	}
+		else{alert("CPU missed your Submarine")}
+}
+	//battleship
+	for (var ch = 0; ch < staticB.length; ch++) {
+		if (staticB [ch] === coords) {
+			alert("battleship Hit " + coords);
+			if(coords === "H4"){
+				staticB.splice(0,1);
+				staticB.splice(0,0,"HIT");
+				}
+				else if (coords === "H5"){
+					staticB.splice(1,1);
+					staticB.splice(1,0,"HIT");
+					}
+					else if (coords === "H6"){
+						staticB.splice(2,1);
+						staticB.splice(2,0,"HIT");
+						}	
+						else if (coords === "H7"){
+							staticB.splice(3,1);
+							staticB.splice(3,0,"HIT");
+							}						
+		}
+		else{alert("CPU missed your Battleship")};
+	}	
+}//cpu shot
+
+/************************************************************************************************ */
+//needs to generate a random number and a randon letter
+
+function cpucoord(){
+	var newnum;	//this var is a global var which means that it generates the number when you load the page or hit "play again" button.
 		var highnumber = 10; //this is the max 
 
 		var lownumber = 1; // this is the min
 
 		newnum = Math.floor(Math.random() * (highnumber - lownumber)+1); //this generates a random number, math.floor rounds the number to a whole number
 
-		console.log(newnum);                                  //shows random number in console
 
-	};
-
-/****************************************************** */
-//original storing function for values 
-/*
-var ships = [];
-//placing ships 
-//console.log(storeships());
-function storeships(){
-var placeships = document.getElementById("urships");
-ships.push(placeships.value);
-console.log(ships); 
-alert(ships);
-} */
-/*************************************************** */
+//this generates a random letter from the site https://www.mediacollege.com/internet/javascript/number/random.html 
+//instead of generating all the characters i made it work for the board. 
+		var chars = "ABCDEFGHIJ";
+		var string_length = 1;
+		var randomstring = '';
+		for (var ri=0; ri<string_length; ri++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			randomstring += chars.substring(rnum,rnum+1);
+		}
+		
+		console.log(randomstring + newnum);
+		document.getElementById("compfire").innerHTML = "CPU Guess: " + (randomstring + newnum);
+	}
+/******************************************************************************************************* */
+function endgame(){
+	if(staticA === ["HIT","HIT","HIT","HIT","HIT"] &&
+	   staticB === ["HIT","HIT","HIT","HIT"] &&
+	   staticCR === ["HIT","HIT","HIT"] &&
+	   staticD === ["HIT","HIT"] &&
+	   staticS === ["HIT","HIT","HIT"] 
+	   ||
+	   cpustaticA === ["HIT","HIT","HIT","HIT","HIT"] &&
+	   cpustaticB === ["HIT","HIT","HIT","HIT"] &&
+	   cpustaticCR === ["HIT","HIT","HIT"] &&
+	   cpustaticD === ["HIT","HIT"] &&
+	   cpustaticS === ["HIT","HIT","HIT"]
+	){
+	document.write("Game Over");
+	}
+}
+/***************************************************************************************************** */
 //Placing Ships in dynamic board
 	var destroyership = [];
 function destroy_pos(){
@@ -361,15 +484,6 @@ function battleship_pos(){
 	console.log(battleship); 
 	alert("Battleship Positions: "+ battleship);
 	}
-/*********************************************************** */
-/*
-function testshot(){
-	var shot = (document.getElementById("submit")).value;
-	//alert(battleship[]);
-	if (shot == battleship.indexOf(battleship))
-		{alert("HIT")}
-	else{alert("Miss")}
-}*/
 /************************************************************** */
 //clears the elements in the arrays
 function cleard(){
@@ -392,5 +506,10 @@ function clearb(){
 	battleship = [];
 	alert("Battleship positions cleared" + battleship);
 }
-
-
+/*********************************************************** */
+//if  ihad more time the Div would write the ships that have been sunk when the new arrays all had HIT with in it
+function sunk(){
+	if(staticA === ["HIT","HIT","HIT","HIT","HIT"]){
+		document.getElementById("shipsunk").innerHTML = "Aircraft Carrier has sunk"	
+	}
+}
