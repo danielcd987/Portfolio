@@ -1,0 +1,22 @@
+h1 {
+    font-family: cursive;
+    color: orange;
+    
+}
+body{
+    font-family: cursive;
+    background-color: aqua;
+}
+p {
+    font-family: cursive;
+    color: orange;
+}
+label{
+    font-family: cursive;
+    color: orange;
+}
+textarea{
+    font:black;
+    color:orange;
+    border: 10px solid;
+}

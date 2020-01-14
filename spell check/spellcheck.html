@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>Spell check</TITLE>
+<meta charset="UTF-8" />
+<META name="author" description="Dan DeCarlo"/>
+<link href="spellcheck.css" type = "text/css" rel ="stylesheet"/>
+<SCRIPT src = "wordlist.js"></SCRIPT> <!--calls the wordlist.js file-->
+
+<SCRIPT type = "text/javascript"> 
+/*
+Purpose:This project's purpose is to create a spell check that shows what words were spelling incorrectly.
+Description: When text is entered in the textarea box teh program goes through all the words and compares it to the script file refrenced on line 8.
+*/
+function checkspelling(){
+    var text = document.getElementById("text2check").value; //calls the input from the textarea box //.value gets the text entered in the box
+    var words = text.split(" "); //splits up the string word by word
+
+    for (var w=0; w<words.length;w++) {  //start with countervar and gives value 0 and keeps going if 0 is < than words.length, w++ adds one to w and stores it in w.
+       var wordfound = false; //check word list if input is a word if its not a word it alerts the alert.
+        //get rid of all puncuation and numbers
+        
+        var fixedword = words[w].toUpperCase();
+        var n=0;
+       
+        while (n<fixedword.length){ //expand for other puncuation marks
+            if(fixedword.charAt(n) >= 'A' &&
+                fixedword.charAt(n) <='Z') 
+                             
+                 n++;
+            else if (fixedword.charAt(n) == "'")
+                n++;
+            else
+                fixedword = fixedword.substring(0,n)+ //looks at character not a letter and takes that and end of string and shows wrong
+                    fixedword.substring(n+1);
+        }
+        if(fixedword.length==0) continue; //leave loop and go to next segment
+        for (var i=0; i<wordlist.length;i++){ 
+            if(fixedword==wordlist[i]){
+                wordfound = true; //finds word in word list and says if its true. 
+                
+                break; //exits the loop
+            }
+                       
+            
+        }//for each item in the wordlist
+            if (!wordfound)
+            alert(words[w]+" is not spelled correctly.");
+            if(wordfound==':')
+            alert("add a space after :"); 
+           
+   } //for each word
+            
+     //alert(words.length); //shows the amount of words.
+    //alert(text2check.value); //alerts the text input
+
+} //checkspelling
+
+//alert(wordlist.length); //alerts the length of the  wordlist file.
+</SCRIPT>
+
+</HEAD>
+
+<BODY>
+    
+     <h1>Simple Spell Check:</h1>
+    <p>This is a simple spell check that you can use to check spelling. Hope You enjoy!</p>
+
+    <Label for="text2check" style="display:block ;">Type some text:</Label>
+    
+    <textarea id="text2check" rows="8" cols="60" placeholder = "Insert text here" ></textarea> <!--text area is a multiline text input-->
+    <button  onClick="checkspelling();">Check Spelling</button>    
+    <br />
+
+    <!--<img src= "https://www.glasbergen.com/wp-content/gallery/technology-cartoons/toon-3250.gif" alt="funnypic" size = "100"> -->
+</BODY>
+
+</HTML>
