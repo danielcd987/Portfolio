@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<HTML>
+<!--Purpose: the purpose of this project is to demonstrate my knowledge of if and else statements in Javascript. Also shows what skills i have in JS and HTML.
+	Description: This is a guess a number game. The console generates a random number between 1 and 25 and the player has to guess it. The webpage will alert you
+	if the number is too small, large, or correct. Also the game will alert you when a nonnumber value is inputted-->
+	
+<!--Also a big thanks to Miguel Tapia who helped me debug the program and clarified concepts i struggled with-->
+<HEAD>
+<TITLE>Random Number Converter</TITLE>
+<meta charset="UTF-8" />
+<META name="author" description="Dan DeCarlo"/>
+<SCRIPT> 
+	var newnum;					//this var is a global var which means that it generates the number when you load the page or hit "play again" button.
+
+	function gennum(){
+		var highnumber = 25; //this is the max 
+
+		var lownumber = 1; // this is the min
+
+		newnum = Math.floor(Math.random() * (highnumber - lownumber)+1); //this generates a random number, math.floor rounds the number to a whole number
+
+		console.log(newnum);                                  //shows random number in console
+
+	};
+	
+	function check() {
+			//alert(newnum);                                        //this alerts the random number on webpage
+		   
+		 // var display = document.getElementById("randnum");     //helps display the value
+		// display.innerHTML = ("Number is " + newnum);          //This displays the random number on the webpage
+		var guessnum = document.getElementById("Player");
+				
+		if (guessnum.value == newnum){                       //shows if the input number is equal to actual #
+			alert("Correct");								
+															// ELSE DOESNT HAVE CONDITIONS
+		} else if (guessnum.value < newnum) { 				
+															
+			alert("Too small use a higher number");        //this shows if the input number is less than actual #
+		} else if(guessnum.value > newnum){				  
+			alert("Too high try again.");
+		} else  {
+			alert("Not a Number! Please use a number!");	//if none of the conditions are true it runs the else.
+		} 													
+															//the else(s) are conditions and if those arent true then it moves to the else.
+	}
+        
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="gennum();">
+    <h1>Welcome to my random number game!!</h1>
+    <h4>Instructions:Put a number in the input box that says "Guess a Number". Next click the button that says "click here"
+        The game will tell you if your number is too high or too low. When you guess the number correctly
+        the game will tell you that your correct. Have fun!
+    </h4>
+	<h2>Choose a number between 1 and 25.</h2>
+    <INPUT id= "Player" size = "15" Placeholder = "Guess a number"/> <!--input box-->
+
+    <BUTTON onclick="check();" size = "10">Click here</BUTTON> <!--button-->
+
+   <!-- <DIV id = "randnum">Number is </DIV>--> 
+   <!--display number on webpage also found in script section-->
+    
+    <BUTTON  onClick = "gennum()" size = "10">Play Again</BUTTON>
+
+
+</BODY>
+
+
+</HTML>
