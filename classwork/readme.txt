@@ -1,0 +1,1 @@
+This folder contains class work from my data structure and algorithms class. Work was done with java and python.
