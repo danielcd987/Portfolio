@@ -1,0 +1,33 @@
+.heading{
+    font-family: 'Oxanium';
+    text-align: center;
+    color: #009900;
+
+}
+.buttonstyles{
+    font-family: 'Oxanium';
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.inputstyle{
+    font-family: 'Oxanium';
+    text-align: center;
+    text-transform: uppercase;
+}
+.centerbox{
+    text-align: center;
+    text-transform: uppercase;
+    color: whitesmoke;
+
+}
+body{
+    background-color: black;
+}
+/* .logininfo{
+    position: relative;
+    text-align: right;
+    font-family: 'Oxanium';
+    text-align: center;
+    color: #009900;
+} */
