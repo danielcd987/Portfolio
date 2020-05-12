@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>Rock-Paper-Scissors</TITLE>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<meta charset="UTF-8" />
+<META name="author" description="Dan DeCarlo"/>
+<SCRIPT type = "text/javascript"> 
+    function roundstart(){
+    ai_choice = Math.floor((Math.random() * 3) + 1); //chooses random number from one to three 
+    console.log(ai_choice); //shows number choice ai made
+    }
+    function playgame(){
+        var choice = document.getElementById("player_input").value.toLowerCase(); //gets the input made by user
+            //3 is rock
+            //2 is paper
+            //1 is scissors
+        //when there is a tie
+        if (ai_choice == 3 & choice == "rock" ){ //if ai and player choose rock then tie
+            alert("Tie");    
+        }
+        else if (ai_choice == 2 & choice == "paper"){ //if ai and player choose paper then tie
+            alert("Tie");
+        }
+        else if (ai_choice == 1 & choice == "scissors"){ //if ai and player choose scissors then tie
+            alert("Tie");
+        }
+        //other moves 
+        else if (ai_choice == 3 & choice == "paper" ){ //if ai chooses rock and player chooses paper player wins
+            alert("You win this round!" + " The Bot chose rock.");    
+        }
+        else if (ai_choice == 2 & choice == "rock"){ //if ai chooses paper and player chooses rock then ai wins
+            alert("You lost this round!" + " The Bot chose paper.");
+        }
+        else if (ai_choice == 1 & choice == "rock"){ //if ai chooses scissors and player chooses rock then player wins
+            alert("You won this round!" + " The Bot chose scissors.");
+        }
+        else if (ai_choice == 2 & choice == "scissors"){ //if ai chooses paper and player chooses scissors then player wins
+            alert("You won this round!" + " The Bot chose paper.");
+        }
+        else{
+            alert("'" + choice + "'" + " is not a valid choice. Please choose Rock Paper or Scissors!"); // alerts a message saying there was an incorrect choice
+        }
+        // ai_choice = Math.floor((Math.random() * 3) + 1); //chooses random number from one to three 
+        // console.log(ai_choice); //shows number choice ai made
+    }
+
+</SCRIPT>
+</HEAD>
+<BODY>
+    <h2>Play Rock-Paper-Scissors</h2>
+    <h4>How to Play:</h4>
+    <p>To begin click start game. Next enter your choice either rock, paper, or scissors. Finally click submit. To play again repeat the process.</p>
+    <button onClick = "roundstart()">Start Game</button> <br><br>
+    <input type = "text" length = 10 id = "player_input" placeholder="Enter choice"> 
+    <button onClick = "playgame()">Submit</button>
+</BODY>
+</HTML>
