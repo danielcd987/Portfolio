@@ -1,0 +1,12 @@
+SQL Query
+
+CREATE TABLE users(
+userid int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+UserNames TINYTEXT NOT NULL,
+email_users TINYTEXT NOT NULL,
+pwdusers LONGTEXT NOT NULL,
+phonenum int(255),
+occ VARCHAR(255),
+age INT(3),
+stats VARCHAR(50)
+);

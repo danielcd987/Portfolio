@@ -1,0 +1,155 @@
+body{
+    background-color:whitesmoke;
+    /* background-image: url(''); */
+    
+}
+ul.header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: 'Krub';
+  }
+  .headerli {
+    float: left;
+    font-family: 'Krub' ;
+  } 
+  .headerli a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-family: 'Krub' ;
+  }
+.headerli a:hover {
+  background-color: maroon;
+  }
+button{
+  background-color: whitesmoke; 
+  font-family: 'Krub' ;
+}
+p{
+  text-align: center;
+  font-family: 'Krub';
+}
+.login_info{
+  text-align: center;
+  font-family: 'Krub' ;
+}
+.signform{
+  text-align: center;
+  font-family: 'Krub' ;
+}
+input{
+  font-family: 'Krub';
+}
+.profilepic{
+  height: 300;
+  width : 300;
+  position: relative;
+}
+.aboutme{
+  font-family: 'Krub';
+  list-style-type: none;
+}
+p.loginstatus{
+  font-family: 'Krub';
+  text-transform: uppercase;
+}
+.errordisplay{
+  font-family: 'Krub';
+  color: maroon;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.successsignup{
+  font-family: 'Krub';
+  color:  #009933;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.searchalum{
+  text-align: center;
+  font-family: 'Krub';
+  
+}
+.button1photo{
+  padding: 5px;
+  font-family: 'Krub' ;
+}
+p.diffpath{
+  font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
+  color: #333;
+  display: inline-block;
+}
+p.path{
+  
+  font-family: 'Parisienne', cursive;
+  font-size: 40px;
+  color: #333;
+  display: inline-block;
+}
+.resultscontainer{
+  font-family: 'krub';
+  width: 900px;
+  background-color: #fff;
+  padding: 30px;
+
+}
+/* .result-box{
+  padding-bottom: 30px;
+  text-align: center;
+  width: 100%;
+} */
+.search{
+  display: inline-block;
+}
+.namesearch{
+    color:maroon;
+}
+.searchlistresults{
+  font-family: 'Krub' ;
+  list-style-type: none;
+  display: inline-block;
+}
+.records{
+  color:whitesmoke;
+  
+}
+.alumniknow{
+  text-align: center;
+}
+.searchalum{
+  text-align: center;
+}
+table {
+  font-family: 'krub';
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  
+}
+
+tr:nth-child(even) {
+  background-color: maroon;
+}
+li.profileinfo{
+  list-style-type: none;
+}
+.profileresults{
+  text-align: left;
+  color: black;
+  list-style: none;
+}
+.carousel-inner > .item > img {
+  width:640px;
+  height:360px;
+}
