@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekday From Date</title>
+</head>
+<script>
+    function submit(){
+        var month = document.getElementById("month");
+        var date_num = document.getElementById("number");
+        var date_year = document.getElementById("year_num").value;
+        // alert(date_year.value);
+        // alert(month.value + date_num.value + date_year.value);
+
+        months = [3,0,0,4,9,6,11,8,5,10,7,12];
+        var month_number;
+
+    if(months.length > 0){
+        if(month.value == "janurary"){
+            month_number = months[0];
+            // alert(month_number);
+        }
+        else if(month.value == "feburary" || month.value == "march"){
+            month_number = months[1];
+            // alert(month_number);
+        }
+        else if(month.value == "april"){
+            month_number = months[3];
+            // alert(month_number);
+        }
+        else if(month.value == "may"){
+            month_number = months[4];
+            // alert(month_number);
+        }
+        else if(month.value == "june"){
+            month_number = months[5];
+            // alert(month_number);
+        }
+        else if(month.value == "july"){
+            month_number = months[6];
+            // alert(month_number);
+        }
+        else if(month.value == "august"){
+            month_number = months[7];
+            // alert(month_number);
+        }
+        else if(month.value == "september"){
+            month_number = months[8];
+            // alert(month_number);
+        }
+        else if(month.value == "october"){
+            month_number = months[9];
+            // alert(month_number);
+        }
+        else if(month.value == "november"){
+            month_number = months[10];
+            // alert(month_number);
+        }
+        else if(month.value == "december"){
+            month_number = months[11];
+            // alert(month_number);
+        }
+    }
+// //figure out century year code
+//         // var century_numbers = [3,2,0,5,3,2,0]; //years from 1500 to 2100 in century code
+//         var century_numbers = [3];
+//         var begin_year = 1500;
+//         var diff_years = (date_year - begin_year);       // gets the difference of the years 
+// //loop through
+//     for (i = 0; i >= century_numbers.length; i++){
+//         if(diff_years >= 100){ //if the difference is greater than or equal to 100
+//             century_numbers.push[2]; //has to push the century code as the last element of the array
+//             begin_year += 100; //adds 100 to the begin year 
+//             console.log(begin_year);
+//             console.log(century_numbers);
+//             // if(begin_year == date_year){ //when the centries equal each other then it will take the last element of the array which will be that century code 
+//             //     century_numbers.pop(); //gets last element of the array
+//             // }
+//         }
+//         else{
+//             console.log("error");
+//         }
+       
+//         }
+
+var yearsNcode = [[5,1500]];
+
+// console.log(yearsNcode[0][0]); //returns first element 
+
+for(i = 0 ;  i < yearsNcode.length; i++){
+    for(j = 0; j < yearsNcode[i].length;j++){
+        // console.log(yearsNcode[i][j]);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+</script>
+<body>
+    <select id = "month">
+        <option value="janurary">Janurary</option>
+        <option value="feburary">Feburary</option>
+        <option value="march">March</option>
+        <option value="april">April</option>
+        <option value="may">May</option>
+        <option value="june">June</option>
+        <option value="july">July</option>
+        <option value="august">August</option>
+        <option value="september">September</option>
+        <option value="october">October</option>
+        <option value="november">November</option>
+        <option value="december">December</option>
+    </select>
+
+    <input type = "number" placeholder = "Number" min = "1" max = "31" id = "number"> <br>
+    <input type = "number" placeholder = "year" min = "1500" id = "year_num"> <br>
+
+    <button name = "submit" onClick = "submit()">Find Weekday</button>
+</body>
+<!-- // if(date_year > begin_year){
+    //     // if the year is 2000 that is 200 years later
+    //     for(i=0;i>=century_numbers.length;i++) {
+    //         // console.log(century_numbers.fill(0, 3, Infinity));
+    //         console.log(century_numbers[i]);
+    //         console.log(begin_year += 100);
+            
+    //     }
+    // }
+    //the loop has to go through the century numbers 
+    //get that value of the century number
+        // century_numbers.fill(0, 3, Infinity);
+
+    // alert(diff_years); -->
+</html>
