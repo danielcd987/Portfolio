@@ -22,6 +22,8 @@
     distances = [];
     var record_distance = 0;
 
+    keep_points = [];
+
 
     //draw the canvas
     var canvas = document.getElementById("canvas"); //gets the canvas element
@@ -40,18 +42,21 @@
         y_value = Math.floor(Math.random() * 400) + 1; //chooses a random length for y value
         context.fillStyle = "white"; //color selection for the points
         context.fillRect(x_value, y_value, 8, 8); //creates the points
+
+        keep_points.push([x_value,y_value]);
             
         x_values.push(x_value);
         y_values.push(y_value);
         }
-    //find a way to connect them
 
-
+        console.log("Points Used:");
+        console.log(keep_points);
+    
     //prints the two arrays of the points with their x and y values
-    console.log("X Values:");
-    console.log(x_values);
-    console.log("Y Values:");
-    console.log(y_values);
+    // console.log("X Values:");
+    // console.log(x_values);
+    // console.log("Y Values:");
+    // console.log(y_values);
 
 
     // *******************************************************************************************
@@ -73,13 +78,27 @@
     console.log("distances");
     console.log(distances);
 
-    for(i=0;i<=distances.length;i++){
-        record_distance += distances[i] + distances[i+1];
-    }
+
+        for (var i = 0; i< distances.length; i++) {
+            record_distance += distances[i];
+            }
 
     console.log("Sum of distance:");
     console.log(record_distance);
-    // //find the shortest path    
+    //***********************************************************************************************
+    //find the shortest path 
+    
+    /*
+    i have to find a way to start at a new point out of the list of points created. 
+    to do this i would have to take the x and y value of one point and place them into in an array, the array would need to be accessed and shuffled until all points are used
+    there would have to be lines made from the new point
+    how do i preserve the points and have it shuffle? double array, another seperate array ? 
+    compare the distance values from those collected and put the record path as the main path 
+
+    */
+
+
+    
 </script>
 
 </html>
