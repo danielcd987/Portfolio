@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="canvas.css">
 </head>
 
-<body>
+<body onload = "start();">
     <canvas height = 500 width = 500 id = "canvas"></canvas>
 </body>
 <script>
-
+function start(){
+    draw();
+    connect();
+}
     var points = []; //array of points
     points.length = 3; //length of the array
 
@@ -34,7 +37,7 @@
     context.fillRect(0, 0, canvas.width, canvas.height); //fills the canvas from 0 to the last point with color
 
     //creates the points
-
+function draw(){
         for(var i = 0;i < points.length;i++){ //loops through the array length 
         
         //draws the dots
@@ -51,7 +54,7 @@
 
         console.log("Points Used:");
         console.log(keep_points);
-    
+}
     //prints the two arrays of the points with their x and y values
     // console.log("X Values:");
     // console.log(x_values);
@@ -63,7 +66,7 @@
     //join the x and y value together and compute distance from one point to another 
 
     //distance formula √((x_2-x_1)²+(y_2-y_1)²)
-    
+function connect(){    
         for(i=0;i<points.length -1;i++){
         //    distance = Math.sqrt(((Math.pow((x_values[i+1]) - (x_values[i])), 2)) + ((Math.pow((y_values[i+1]) - (y_values[i])), 2)) );
         var distance = Math.sqrt( Math.pow((x_values[i + 1]-x_values[i]), 2) + Math.pow((y_values[i + 1]-y_values[i]), 2) );
@@ -73,8 +76,9 @@
         context.moveTo(x_values[i],y_values[i]);
         context.lineTo(x_values[i+1],y_values[i+1]);
         context.stroke();
+
         }
-    
+}
     console.log("distances");
     console.log(distances);
 
