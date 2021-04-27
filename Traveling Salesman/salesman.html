@@ -8,16 +8,14 @@
     <link rel="stylesheet" href="canvas.css">
 </head>
 
-<body onload = "start();">
+<body>
     <canvas height = 500 width = 500 id = "canvas"></canvas>
 </body>
 <script>
-function start(){
-    draw();
-    connect();
-}
+
     var points = []; //array of points
     points.length = 3; //length of the array
+    console.log(points);
 
     x_values = [];
     y_values = [];
@@ -26,6 +24,9 @@ function start(){
     var record_distance = 0;
 
     keep_points = [];
+
+    //compare the distances from on order of points to another 
+    shortest_path = [];
 
 
     //draw the canvas
@@ -37,7 +38,7 @@ function start(){
     context.fillRect(0, 0, canvas.width, canvas.height); //fills the canvas from 0 to the last point with color
 
     //creates the points
-function draw(){
+
         for(var i = 0;i < points.length;i++){ //loops through the array length 
         
         //draws the dots
@@ -54,7 +55,7 @@ function draw(){
 
         console.log("Points Used:");
         console.log(keep_points);
-}
+    
     //prints the two arrays of the points with their x and y values
     // console.log("X Values:");
     // console.log(x_values);
@@ -66,7 +67,7 @@ function draw(){
     //join the x and y value together and compute distance from one point to another 
 
     //distance formula √((x_2-x_1)²+(y_2-y_1)²)
-function connect(){    
+    
         for(i=0;i<points.length -1;i++){
         //    distance = Math.sqrt(((Math.pow((x_values[i+1]) - (x_values[i])), 2)) + ((Math.pow((y_values[i+1]) - (y_values[i])), 2)) );
         var distance = Math.sqrt( Math.pow((x_values[i + 1]-x_values[i]), 2) + Math.pow((y_values[i + 1]-y_values[i]), 2) );
@@ -75,14 +76,20 @@ function connect(){
         context.beginPath();
         context.moveTo(x_values[i],y_values[i]);
         context.lineTo(x_values[i+1],y_values[i+1]);
-        context.stroke();
+        context.stroke();  
+        
 
+        var i = Math.floor(Math.random(points.length));
+        var j = Math.floor(Math.random(points.length));
+        swap(keep_points, i , j)
         }
-}
-    console.log("distances");
-    console.log(distances);
 
+        
+    
+    // console.log("distances");
+    // console.log(distances);
 
+//takes the sum of the distance between the points
         for (var i = 0; i< distances.length; i++) {
             record_distance += distances[i];
             }
@@ -91,8 +98,10 @@ function connect(){
     console.log(record_distance);
     //***********************************************************************************************
     //find the shortest path 
-    
+
+
     /*
+    https://www.youtube.com/watch?v=myL4xmtAVtw
     i have to find a way to start at a new point out of the list of points created. 
     to do this i would have to take the x and y value of one point and place them into in an array, the array would need to be accessed and shuffled until all points are used
     there would have to be lines made from the new point
@@ -100,9 +109,12 @@ function connect(){
     compare the distance values from those collected and put the record path as the main path 
 
     */
-
-
-    
+function swap (keep_points,i,j){
+    var temp = keep_points[i];
+    keep_points[i] = keep_points[j];
+    keep_points[j] = temp; 
+}
+    // window.load = another_path();
 </script>
 
 </html>
