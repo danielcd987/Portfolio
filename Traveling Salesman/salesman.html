@@ -10,23 +10,38 @@
 
 <body>
     <canvas height = 500 width = 500 id = "canvas"></canvas>
+    <!-- <canvas height = 500 width = 500 id = "canvas2"></canvas> -->
+
+    <button onclick="shortest_paths()"> click</button>
 </body>
 <script>
 
     var points = []; //array of points
-    points.length = 3; //length of the array
+    points.length = 4; //length of the array
     console.log(points);
 
-    x_values = [];
-    y_values = [];
+    x_values = []; //stores x values
+    y_values = []; //stores y values
 
-    distances = [];
+    distances = []; //keeps the distances between the points for the first path
+    new_distances = []; //keeps the other distances for the second path 
+
     var record_distance = 0;
+    var record_distance_2 = 0;
 
     keep_points = [];
 
     //compare the distances from on order of points to another 
     shortest_path = [];
+    shortest_path.length = 0;
+
+    // var canvas2 = document.getElementById("canvas2"); //gets the canvas element
+    // var context2 = canvas2.getContext("2d"); //states a 2d context 
+    // context2.fillStyle = "black"; //color selection
+    // context2.strokeStyle = "red";
+    // context2.lineWidth = 4;
+    // context2.fillRect(0, 0, canvas2.width, canvas2.height); //fills the canvas from 0 to the last point with color
+
 
 
     //draw the canvas
@@ -34,7 +49,7 @@
     var context = canvas.getContext("2d"); //states a 2d context 
     context.fillStyle = "black"; //color selection
     context.strokeStyle = "red";
-    context.lineWidth = 2;
+    context.lineWidth = 4;
     context.fillRect(0, 0, canvas.width, canvas.height); //fills the canvas from 0 to the last point with color
 
     //creates the points
@@ -45,16 +60,16 @@
         x_value = Math.floor(Math.random() * 400) + 1; //chooses a random length for x value
         y_value = Math.floor(Math.random() * 400) + 1; //chooses a random length for y value
         context.fillStyle = "white"; //color selection for the points
-        context.fillRect(x_value, y_value, 8, 8); //creates the points
+        context.fillRect(x_value, y_value,10, 10); //creates the points
 
         keep_points.push([x_value,y_value]);
             
         x_values.push(x_value);
         y_values.push(y_value);
         }
-
-        console.log("Points Used:");
-        console.log(keep_points);
+//look at points
+        // console.log("Points Used:");
+        // console.log(keep_points);
     
     //prints the two arrays of the points with their x and y values
     // console.log("X Values:");
@@ -68,7 +83,7 @@
 
     //distance formula √((x_2-x_1)²+(y_2-y_1)²)
     
-        for(i=0;i<points.length -1;i++){
+        for(i=0;i<points.length-1 ;i++){
         //    distance = Math.sqrt(((Math.pow((x_values[i+1]) - (x_values[i])), 2)) + ((Math.pow((y_values[i+1]) - (y_values[i])), 2)) );
         var distance = Math.sqrt( Math.pow((x_values[i + 1]-x_values[i]), 2) + Math.pow((y_values[i + 1]-y_values[i]), 2) );
         distances.push(Math.round(distance));
@@ -82,21 +97,18 @@
 
         }
 
-        
-    
-    // console.log("distances");
-    // console.log(distances);
+    console.log("distances");
+    console.log(distances);
 
 //takes the sum of the distance between the points
         for (var i = 0; i< distances.length; i++) {
             record_distance += distances[i];
             }
 
-    console.log("Sum of distance:");
-    console.log(record_distance);
+    // console.log("Sum of distance:");
+    // console.log(record_distance);
     //***********************************************************************************************
     //find the shortest path 
-
 
     /*
     https://www.youtube.com/watch?v=myL4xmtAVtw
@@ -107,24 +119,83 @@
     compare the distance values from those collected and put the record path as the main path 
 
     */
-   function shifting(){
-    // var test = keep_points.shift();
+    //dikjstras algoritm
+    function shortest_paths(){
+    //the array gets shifted and will then have to calculate the path from the new points. 
+    for (var i = 0; i <= x_values.length; i++) {
+        new_x_values = x_values;
+        new_y_values = y_values;
+        var test = new_x_values.shift();
+        var test2 = new_y_values.shift();
+        new_x_values.push(test);
+        new_y_values.push(test2);
     
-    for (var i = 0; i < keep_points.length; i++) {
-    for (var j = 0; j < keep_points[i]; j++)    {
-        var test = keep_points.shift();
-        keep_points.push(test);
     }
-}
-    // keep_points.push(test);
+        // console.log("New array");
+        // console.log("New x values");
+        // console.log(new_x_values);
+        // console.log("New y values");
+        // console.log(new_y_values);
+        // keep_points.push(test);
+    colors = ["blue","green","yellow","white","orange","pink"];
+    colors_random = Math.floor(Math.random() * 5) + 1;
+        for(i=0;i<points.length -1;i++){
+        //    distance = Math.sqrt(((Math.pow((x_values[i+1]) - (x_values[i])), 2)) + ((Math.pow((y_values[i+1]) - (y_values[i])), 2)) );
+        var distance2 = Math.sqrt( Math.pow((new_x_values[i + 1]-new_x_values[i]), 2) + Math.pow((new_y_values[i + 1]-new_y_values[i]), 2) );
+        new_distances.push(Math.round(distance2));
+        
+        context.beginPath();
+        context.strokeStyle = colors[colors_random];
+        context.moveTo(new_x_values[i],new_y_values[i]);
+        context.lineTo(new_x_values[i+1],new_y_values[i+1]);
+        // context.lineTo(x_values[0],y_values[0]);
+        context.lineWidth = 2;
+        context.stroke();  
+        
 
-    console.log("New array");
-    console.log(keep_points);
-  
-   }
+        }
+        for (var i = 0; i< new_distances.length; i++) {
+            record_distance_2 += new_distances[i];
+            }
 
-   window.onload = shifting();
-//dikjstras algoritm
+//new sum of distances
+            console.log("dis");
+            console.log(record_distance);
+            console.log("New Sum of distance:");
+            console.log(record_distance_2); 
+
+            // console.log("distances");
+            // console.log(distances);
+
+    //if the second distance is less than the original between points 
+    if(record_distance_2 <= record_distance){
+        shortest_path.pop();
+        shortest_path.push(record_distance_2);
+        record_distance_2 = 0;
+        new_distances = [];
+        console.log("hi");
+    }
+    //if the second distance is less than the element in shortest path array 
+    else if(record_distance_2 <= shortest_path[0]){
+        shortest_path.pop();
+        shortest_path.push(record_distance_2);
+        record_distance_2 = 0;
+        new_distances = [];
+        console.log("this one");
+    }
+    else{
+        shortest_path.pop();
+        shortest_path.push(record_distance);
+        record_distance_2 = 0;
+        new_distances = [];
+        console.log("third one");
+    }
+    console.log("shortest Path");
+    console.log(shortest_path);
+    // console.log(record_distance_2);
+    }
+    
+
 </script>
 
 </html>
