@@ -76,12 +76,10 @@
         context.beginPath();
         context.moveTo(x_values[i],y_values[i]);
         context.lineTo(x_values[i+1],y_values[i+1]);
+        // context.lineTo(x_values[0],y_values[0]);
         context.stroke();  
         
 
-        var i = Math.floor(Math.random(points.length));
-        var j = Math.floor(Math.random(points.length));
-        swap(keep_points, i , j)
         }
 
         
@@ -109,12 +107,24 @@
     compare the distance values from those collected and put the record path as the main path 
 
     */
-function swap (keep_points,i,j){
-    var temp = keep_points[i];
-    keep_points[i] = keep_points[j];
-    keep_points[j] = temp; 
+   function shifting(){
+    // var test = keep_points.shift();
+    
+    for (var i = 0; i < keep_points.length; i++) {
+    for (var j = 0; j < keep_points[i]; j++)    {
+        var test = keep_points.shift();
+        keep_points.push(test);
+    }
 }
-    // window.load = another_path();
+    // keep_points.push(test);
+
+    console.log("New array");
+    console.log(keep_points);
+  
+   }
+
+   window.onload = shifting();
+//dikjstras algoritm
 </script>
 
 </html>
