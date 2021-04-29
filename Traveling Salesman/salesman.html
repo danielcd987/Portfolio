@@ -26,14 +26,14 @@
     distances = []; //keeps the distances between the points for the first path
     new_distances = []; //keeps the other distances for the second path 
 
-    var record_distance = 0;
-    var record_distance_2 = 0;
+    var record_distance = 0; //value of measuring distance in regular graph
+    var record_distance_2 = 0; //value of new path 
 
-    keep_points = [];
+    keep_points = []; //the points that made the original graph 
 
     //compare the distances from on order of points to another 
-    shortest_path = [];
-    shortest_path.length = 0;
+    shortest_path = []; //this is where the distance of the shortest path would go
+    shortest_path.length = 0; //length of the shortest path array 
 
     // var canvas2 = document.getElementById("canvas2"); //gets the canvas element
     // var context2 = canvas2.getContext("2d"); //states a 2d context 
@@ -62,7 +62,7 @@
         context.fillStyle = "white"; //color selection for the points
         context.fillRect(x_value, y_value,10, 10); //creates the points
 
-        keep_points.push([x_value,y_value]);
+        keep_points.push([x_value,y_value]); //pushed the values into 2d points array
             
         x_values.push(x_value);
         y_values.push(y_value);
@@ -146,6 +146,7 @@
         
         context.beginPath();
         context.strokeStyle = colors[colors_random];
+        // context.strokeStyle = "red";
         context.moveTo(new_x_values[i],new_y_values[i]);
         context.lineTo(new_x_values[i+1],new_y_values[i+1]);
         // context.lineTo(x_values[0],y_values[0]);
@@ -156,7 +157,7 @@
         }
         for (var i = 0; i< new_distances.length; i++) {
             record_distance_2 += new_distances[i];
-            }
+            }//adding the second path point distances 
 
 //new sum of distances
             console.log("dis");
@@ -168,28 +169,38 @@
             // console.log(distances);
 
     //if the second distance is less than the original between points 
-    if(record_distance_2 <= record_distance){
-        shortest_path.pop();
+    if(record_distance_2 <= record_distance || record_distance_2 <= shortest_path[0]){
+        // shortest_path.pop();
         shortest_path.push(record_distance_2);
+        shortest_path.sort(function(a, b){return a-b});
         record_distance_2 = 0;
         new_distances = [];
         console.log("hi");
     }
-    //if the second distance is less than the element in shortest path array 
-    else if(record_distance_2 <= shortest_path[0]){
-        shortest_path.pop();
-        shortest_path.push(record_distance_2);
-        record_distance_2 = 0;
-        new_distances = [];
-        console.log("this one");
-    }
-    else{
-        shortest_path.pop();
+    else if(record_distance <= shortest_path[0] || record_distance<= record_distance_2){
+        // shortest_path.pop();
         shortest_path.push(record_distance);
+        shortest_path.sort(function(a, b){return a-b});
+        // record_distance = 0;
         record_distance_2 = 0;
         new_distances = [];
-        console.log("third one");
+        console.log("hello world");
     }
+    // //if the second distance is less than the element in shortest path array 
+    // else if(record_distance_2 <= shortest_path[0]){
+    //     shortest_path.pop();
+    //     shortest_path.push(record_distance_2);
+    //     record_distance_2 = 0;
+    //     new_distances = [];
+    //     console.log("this one");
+    // }
+    // else{
+    //     shortest_path.pop();
+    //     shortest_path.push(record_distance);
+    //     record_distance_2 = 0;
+    //     new_distances = [];
+    //     console.log("third one");
+    // }
     console.log("shortest Path");
     console.log(shortest_path);
     // console.log(record_distance_2);
