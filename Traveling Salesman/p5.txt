@@ -3,65 +3,65 @@ var total_cities = 10;
 
 var recordDistance;
 var BestEver;
+
 function setup(){
-        createCanvas(500,500);
-        for(i=0;i<total_cities;i++){
-           var v = createVector(random(width), random(height));
-           cities[i] = v; 
+createCanvas(500,500);
+for(i=0;i<total_cities;i++){
+   var v = createVector(random(width), random(height));
+   cities[i] = v; 
         }
   var d = calc_dis(cities);
   recordDistance = d;
   BestEver = cities.slice();
     }
 function draw(){
-background(0);
-fill(255);
-for(i=0;i<total_cities;i++){
-  ellipse(cities[i].x,cities[i].y,8,8)
-        }
-stroke(255);
-strokeWeight(2);
-noFill();
-beginShape();
-for(i=0;i<cities.length;i++){
-  vertex(cities[i].x,cities[i].y)
-        }
-endShape();
-  
-stroke(255,89,3);
-strokeWeight(4);
-noFill();
-beginShape();
-for(i=0;i<cities.length;i++){
-  vertex(BestEver[i].x,BestEver[i].y)
-        }
-endShape();
- 
-  
+      background(0);
+      fill(255);
+    
+  for(i=0;i<total_cities;i++){
+    ellipse(cities[i].x,cities[i].y,8,8)
+  }
+      stroke(255);
+      strokeWeight(2);
+      noFill();
+      beginShape();
+  for(i=0;i<cities.length;i++){
+      vertex(cities[i].x,cities[i].y)
+  }
+      endShape();
 
+      stroke(255,89,3);
+      strokeWeight(4);
+      noFill();
+      beginShape();
+  for(i=0;i<cities.length;i++){
+      vertex(BestEver[i].x,BestEver[i].y)
+  }
+      endShape();
 
-var i = floor(random(cities.length));
-var j = floor(random(cities.length));
-swap(cities,i,j);
-var d =  calc_dis(cities); 
+  var i = floor(random(cities.length));
+  var j = floor(random(cities.length));
+  swap(cities,i,j);
+  var d =  calc_dis(cities); 
 
-if(d<recordDistance){
-  recordDistance = d;
-  BestEver = cities.slice();
-  // console.log(recordDistance);
-}
-  
+  if(d<recordDistance){
+        recordDistance = d;
+        BestEver = cities.slice();
+        // console.log(recordDistance);
+   }
+
   }//draw
 function swap(a,i,j){
   var temp = a[i];
   a[i] = a[j];
   a[j] = temp;
 }//swap
+
 function calc_dis(points){
   var sum = 0;
   for(var i = 0; i<points.length-1; i++){
-var d = dist(points[i].x,points[i].y,points[i+1].x,points[i].x);
-sum += d;
+    var d = dist(points[i].x,points[i].y,points[i+1].x,points[i].x);
+    sum += d;
   }
 return sum; 
 }

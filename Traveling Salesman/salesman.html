@@ -17,7 +17,7 @@
 <script>
 
     var points = []; //array of points
-    points.length = 4; //length of the array
+    points.length = 10; //length of the array
     console.log(points);
 
     x_values = []; //stores x values
@@ -88,11 +88,11 @@
         var distance = Math.sqrt( Math.pow((x_values[i + 1]-x_values[i]), 2) + Math.pow((y_values[i + 1]-y_values[i]), 2) );
         distances.push(Math.round(distance));
         
-        context.beginPath();
-        context.moveTo(x_values[i],y_values[i]);
-        context.lineTo(x_values[i+1],y_values[i+1]);
-        // context.lineTo(x_values[0],y_values[0]);
-        context.stroke();  
+        // context.beginPath();
+        // context.moveTo(x_values[i],y_values[i]);
+        // context.lineTo(x_values[i+1],y_values[i+1]);
+        // // context.lineTo(x_values[0],y_values[0]);
+        // context.stroke();  
         
 
         }
