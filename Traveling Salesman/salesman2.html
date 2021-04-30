@@ -69,9 +69,9 @@ function find_path(){
 
 distance();    
 
-var i = Math.floor(random(points.length));
-var j = Math.floor(random(points.length));
-shuffle(points,i,j);
+var i = Math.floor(Math.random(keep_points.length));
+var j = Math.floor(Math.random(keep_points.length));
+shuffle(keep_points,i,j);
 
     }
 
@@ -96,6 +96,7 @@ function shuffle(a, i , j){
 
     a[i] = a[j];
     a[j] = temp;
+    console.log("hello",keep_points);
 
 }
 
