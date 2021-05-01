@@ -67,11 +67,12 @@ function find_path(){
         
 
 
-distance();    
+distance();
+shuffle();
 
-var i = Math.floor(Math.random(keep_points.length));
-var j = Math.floor(Math.random(keep_points.length));
-shuffle(keep_points,i,j);
+// var i = Math.floor(Math.random(keep_points.length));
+// var j = Math.floor(Math.random(keep_points.length));
+// shuffle(keep_points,i,j);
 
     }
 
@@ -92,10 +93,19 @@ console.log("distances",record_distance);
 
 function shuffle(a, i , j){
     
-    temp = a[i];
+    for(var i = 0; i < keep_points.length; i++) {
+     var index_i = keep_points[i];
+     for(var j = 0; j < keep_points.length; j++) {
+         var b = keep_points[i];
+					keep_points[i] = keep_points[j];
+					keep_points[j] = b;
+     }
+}
+    
+    // temp = a[i];
 
-    a[i] = a[j];
-    a[j] = temp;
+    // a[i] = a[j];
+    // a[j] = temp;
     console.log("hello",keep_points);
 
 }
